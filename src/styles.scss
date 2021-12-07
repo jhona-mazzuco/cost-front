@@ -1,0 +1,13 @@
+/* You can add global scss to this file, and also import other style files */
+@import "assets/scss/theming";
+@import "assets/scss/variables/colors";
+
+html, body {
+  height: 100%;
+  background: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

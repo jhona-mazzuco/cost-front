@@ -1,0 +1,19 @@
+@use "~@angular/material/index" as mat;
+
+@import "./variables/palettes";
+
+@include mat.core();
+
+$cost-front-primary: mat.define-palette($primary-palette);
+$cost-front-accent: mat.define-palette($secondary-palette);
+$cost-front-warn: mat.define-palette($warn-palette);
+
+$cost-front-theme: mat.define-light-theme((
+  color: (
+    primary: $cost-front-primary,
+    accent: $cost-front-accent,
+    warn: $cost-front-warn,
+  )
+));
+
+@include mat.all-component-themes($cost-front-theme);
