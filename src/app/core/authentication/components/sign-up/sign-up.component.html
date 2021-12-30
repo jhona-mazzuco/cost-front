@@ -1,0 +1,65 @@
+<div class="sign-up">
+  <div class="sign-up__container">
+    <div class="sign-in__header">
+      <img alt="logo" src="assets/images/logo-black.png"/>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="sign-up__form">
+      <div class="sign-up__field">
+        <mat-form-field appearance="outline">
+          <mat-label>Nome</mat-label>
+          <input matInput type="text" formControlName="name"/>
+          <mat-error *ngIf="form.get('name')?.touched && form.get('name')?.hasError('required')">
+            Campo obrigatório!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="sign-up__field">
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="email" formControlName="email"/>
+          <mat-error *ngIf="form.get('email')?.touched && form.get('email')?.hasError('required')">
+            Campo obrigatório!
+          </mat-error>
+
+          <mat-error *ngIf="form.get('email')?.value?.length && form.get('email')?.hasError('email')">
+            Formado de e-mail inválido!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="sign-up__field">
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" formControlName="password"/>
+          <mat-error *ngIf="form.get('password')?.touched && form.get('password')?.hasError('required')">
+            Campo obrigatório!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="sign-up__field">
+        <mat-form-field appearance="outline">
+          <mat-label>Confirme a senha</mat-label>
+          <input matInput type="password" formControlName="confirmPassword"/>
+          <mat-error *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')">
+            Campo obrigatório!
+          </mat-error>
+
+          <mat-error *ngIf="form.get('confirmPassword')?.value?.length && form.get('confirmPassword')?.hasError('equalPassword')">
+            Senha diferente da inserida!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="sign-up__submit">
+        <button type="submit" mat-raised-button color="accent">Registar</button>
+      </div>
+    </form>
+
+    <div class="sign-up__back">
+      <button mat-flat-button routerLink="/">Voltar</button>
+    </div>
+  </div>
+</div>

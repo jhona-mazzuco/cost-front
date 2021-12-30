@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./core/shell/shell.module').then(m => m.ShellModule)
+    loadChildren: () => import('./core/shell/shell.module').then(m => m.ShellModule),
   }
 ];
 

@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { ShellComponent } from './shell.component';
 import { ShellRouting } from "./shell.routing";
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-
-
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     ShellComponent,
-    SidebarComponent
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
     ShellRouting,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ]
 })
 export class ShellModule { }

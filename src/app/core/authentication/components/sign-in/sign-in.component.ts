@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -9,14 +11,26 @@ import { FormControl, FormGroup } from "@angular/forms";
 export class SignInComponent implements OnInit {
   form!: FormGroup;
 
-  constructor() { }
+  constructor(private service: AuthService, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl(),
+      email: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
       rememberMe: new FormControl()
     })
   }
 
+  submit(): void {
+    const { email, password } = this.form.value;
+    this.service.signIn(email, password).subscribe({
+      next: (token) => this.onSuccess(token),
+    });
+  }
+
+  onSuccess(token: string): void {
+    this.service.saveToken(token);
+    this.router.navigateByUrl('');
+  }
 }

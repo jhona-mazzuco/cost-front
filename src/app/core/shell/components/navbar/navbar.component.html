@@ -1,0 +1,12 @@
+<section class="navbar">
+  <div class="navbar__logo">
+    <img routerLink="/" alt="logo" src="assets/images/logo.png"/>
+  </div>
+  <ul class="navbar__navigation">
+    <li class="navbar__link" *ngFor="let route of routes" [routerLink]="route.url">
+      <mat-icon [svgIcon]="route.icon"></mat-icon>
+      {{ route.name }}
+    </li>
+  </ul>
+  <div class="navbar__extra"></div>
+</section>

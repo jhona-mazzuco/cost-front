@@ -7,12 +7,16 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { AuthenticationRouting } from "./authentication.routing";
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { EqualPasswordValidator } from './validators/equal-password.validator';
 
 
 
 @NgModule({
   declarations: [
-    SignInComponent
+    SignInComponent,
+    SignUpComponent,
+    EqualPasswordValidator
   ],
   imports: [
     CommonModule,

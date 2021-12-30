@@ -1,14 +1,14 @@
 <div class="sign-in">
   <div class="sign-in__container">
     <div class="sign-in__header">
-      <img alt="logo"/>
+      <img alt="logo" src="assets/images/logo-black.png"/>
     </div>
 
-    <form [formGroup]="form" class="sign-in__form">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="sign-in__form">
       <div class="sign-in__field">
         <mat-form-field appearance="outline">
-          <mat-label>Usuário</mat-label>
-          <input matInput formControlName="username" />
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" />
         </mat-form-field>
       </div>
 
@@ -19,14 +19,18 @@
         </mat-form-field>
       </div>
 
-      <mat-checkbox formControlName="remember-me">Lembrar minha senha?</mat-checkbox>
+      <mat-checkbox formControlName="rememberMe">Lembrar minha senha?</mat-checkbox>
 
       <div class="sign-in__submit">
-        <button mat-raised-button color="accent">Acessar</button>
+        <button type="submit" mat-raised-button color="accent">Entrar</button>
+      </div>
+
+      <span class="sign-in__separator">ou</span>
+
+      <div class="sign-in__register">
+        <a routerLink="/auth/signup">Clique aqui para criar uma nova conta</a>
       </div>
     </form>
-
-    <hr class="sign-in__separator" />
 
     <div>
       <label>teste</label>
